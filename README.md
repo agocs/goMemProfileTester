@@ -1,5 +1,4 @@
-Testing `ReadMemStats` vs `pprof.Lookup`
--------------------------------------
+# Testing `ReadMemStats` vs `pprof.Lookup`
 
 This is a really simple webserver designed to test the 
 performance of ReadMemStats vs pprof.Lookup. It exposes
