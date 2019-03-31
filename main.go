@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-func main(){
+func main() {
 	rand.Seed(time.Now().UnixNano())
 	http.HandleFunc("/readMem0/", useNeither)
 	http.HandleFunc("/readMem1/", useMemReadMemStats)
@@ -20,7 +20,6 @@ func main(){
 	http.ListenAndServe(":8080", nil)
 
 }
-
 
 func useNeither(w http.ResponseWriter, r *http.Request) {
 	response, _ := json.Marshal(*wasteMem())
@@ -38,16 +37,17 @@ func useMemReadMemStats(w http.ResponseWriter, r *http.Request) {
 
 func useMemPprof(w http.ResponseWriter, r *http.Request) {
 	response, _ := json.Marshal(*wasteMem())
-	buf :=  bytes.Buffer{}
+	buf := bytes.Buffer{}
 	pprof.Lookup("heap").WriteTo(&buf, 1)
-	log.Print(buf.String())
+	//	log.Print(buf.String())
+	log.Print("done")
 	w.Write(response)
 }
 
-func wasteMem()*[]float64{
+func wasteMem() *[]float64 {
 	randBuffer := []float64{}
 	//fill up a very large array with random values
-	for i := 0; i < 1024; i++{
+	for i := 0; i < 204800; i++ {
 		randBuffer = append(randBuffer, rand.Float64())
 	}
 	//sort them in place
