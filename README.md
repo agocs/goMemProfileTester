@@ -6,6 +6,8 @@ a couple of endpoints that both generate a long, sorted
 slice of float64s. It then reports on the allocated 
 memory one of two ways.
 
+This repo carries the Genuine "Written on an Airplane" seal of approval.
+
 ## Why
 
 I want to look into how much recording heap utilization will
@@ -70,3 +72,4 @@ Success       [ratio]                  100.00%
 Status Codes  [code:count]             200:500
 Error Set:
 ```
+
