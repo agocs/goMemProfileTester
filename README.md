@@ -35,9 +35,9 @@ echo "GET http://localhost:8080/readMem2/" | vegeta attack -duration 10s | veget
 
 ```
 Requests      [total, rate]            500, 50.10
-Duration      [total, attack, wait]    9.981827624s, 9.980855699s, 971.925µs
-Latencies     [mean, 50, 95, 99, max]  1.12808ms, 1.083607ms, 1.527106ms, 1.83792ms, 4.748087ms
-Bytes In      [total, mean]            9866209, 19732.42
+Duration      [total, attack, wait]    9.981021439s, 9.980178389s, 843.05µs
+Latencies     [mean, 50, 95, 99, max]  1.076732ms, 991.45µs, 1.565569ms, 1.955077ms, 7.243589ms
+Bytes In      [total, mean]            9866887, 19733.77
 Bytes Out     [total, mean]            0, 0.00
 Success       [ratio]                  100.00%
 Status Codes  [code:count]             200:500
@@ -47,10 +47,10 @@ Error Set:
 ### ReadMemStats
 
 ```
-Requests      [total, rate]            500, 50.10
-Duration      [total, attack, wait]    9.981129903s, 9.980053077s, 1.076826ms
-Latencies     [mean, 50, 95, 99, max]  1.11529ms, 1.068754ms, 1.536628ms, 1.730011ms, 5.803736ms
-Bytes In      [total, mean]            9866236, 19732.47
+Requests      [total, rate]            500, 50.09
+Duration      [total, attack, wait]    9.982931537s, 9.982067082s, 864.455µs
+Latencies     [mean, 50, 95, 99, max]  1.077519ms, 966.665µs, 1.586833ms, 1.97482ms, 6.859381ms
+Bytes In      [total, mean]            9866533, 19733.07
 Bytes Out     [total, mean]            0, 0.00
 Success       [ratio]                  100.00%
 Status Codes  [code:count]             200:500
@@ -60,16 +60,12 @@ Error Set:
 ### pprof.Lookup
 
 ```
-Requests      [total, rate]            500, 50.10
-Duration      [total, attack, wait]    10.002298725s, 9.980712303s, 21.586422ms
-Testing `ReadMemStats` vs `pprof.Lookup`
-Latencies     [mean, 50, 95, 99, max]  14.205203ms, 13.191055msTesting `ReadMemStats` vs `pprof.Lookup`
-, 23.668592ms, 61.845205ms, 81.412335ms
-
-Bytes In      [total, mean]            9866039, 19732.08
+Requests      [total, rate]            500, 50.09
+Duration      [total, attack, wait]    9.983083109s, 9.981228359s, 1.85475ms
+Latencies     [mean, 50, 95, 99, max]  1.637835ms, 1.557003ms, 2.705042ms, 3.478394ms, 7.55065ms
+Bytes In      [total, mean]            9866530, 19733.06
 Bytes Out     [total, mean]            0, 0.00
 Success       [ratio]                  100.00%
 Status Codes  [code:count]             200:500
 Error Set:
 ```
-

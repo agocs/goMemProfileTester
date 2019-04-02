@@ -6,13 +6,32 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"runtime"
 	"runtime/pprof"
 	"sort"
+	"strconv"
 	"time"
 )
 
+var bufferSize int = 1024
+
 func main() {
+
+	strBufferSize := os.Args[1]
+
+	if strBufferSize != "" {
+		bufSize, err := strconv.Atoi(strBufferSize)
+		if err == nil {
+			bufferSize = bufSize
+		} else {
+			log.Printf("Unable to use %s as a buffer size. Using %d instead.", strBufferSize, bufSize)
+		}
+	}
+
+	log.Printf("Starting with buffer size %d", bufferSize)
+
+
 	rand.Seed(time.Now().UnixNano())
 	http.HandleFunc("/readMem0/", useNeither)
 	http.HandleFunc("/readMem1/", useMemReadMemStats)
@@ -47,7 +66,7 @@ func useMemPprof(w http.ResponseWriter, r *http.Request) {
 func wasteMem() *[]float64 {
 	randBuffer := []float64{}
 	//fill up a very large array with random values
-	for i := 0; i < 204800; i++ {
+	for i := 0; i < bufferSize; i++ {
 		randBuffer = append(randBuffer, rand.Float64())
 	}
 	//sort them in place
